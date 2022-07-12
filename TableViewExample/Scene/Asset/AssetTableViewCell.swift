@@ -76,7 +76,8 @@ final class AssetTableViewCell: UITableViewCell {
     private lazy var accountTotalPrice: UILabel = {
         let label = UILabel()
         label.text = "51,320,168원"
-        label.font = .systemFont(ofSize: 16.0, weight: .bold)
+        label.font = .systemFont(ofSize: 20.0, weight: .bold)
+        label.textAlignment = .center
         label.textColor = .label
         return label
     }()
@@ -124,6 +125,15 @@ final class AssetTableViewCell: UITableViewCell {
 
         separatorImageView.snp.makeConstraints {
             $0.top.equalTo(accountIncreaseValueLable)
+            $0.leading.equalTo(accountIncreaseValueLable.snp.trailing).offset(4.0)
+            $0.width.equalTo(12.0)
+            $0.height.equalTo(14.0)
+        }
+
+        accountPercentageLabel.snp.makeConstraints {
+            $0.top.equalTo(separatorImageView)
+            $0.leading.equalTo(separatorImageView.snp.trailing).offset(4.0)
+            $0.trailing.equalToSuperview()
         }
 
         return view
@@ -135,7 +145,9 @@ final class AssetTableViewCell: UITableViewCell {
 
         [
             accountInfoView,
-            moreButton
+            moreButton,
+            accountTotalPrice,
+            priceChangeView
         ]
             .forEach {
                 view.addSubview($0)
@@ -145,13 +157,24 @@ final class AssetTableViewCell: UITableViewCell {
         accountInfoView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(inset)
             $0.leading.equalToSuperview().offset(inset)
-            $0.bottom.equalToSuperview()
         }
 
         moreButton.snp.makeConstraints {
             $0.top.equalTo(accountInfoView)
             $0.trailing.equalToSuperview().offset(-inset)
-            $0.width.height.equalTo(18.0)
+            $0.width.height.equalTo(14.0)
+        }
+
+        accountTotalPrice.snp.makeConstraints {
+            $0.top.equalTo(accountInfoView.snp.bottom).offset(20.0)
+            $0.leading.equalTo(accountInfoView)
+            $0.trailing.equalTo(moreButton)
+        }
+
+        priceChangeView.snp.makeConstraints {
+            $0.top.equalTo(accountTotalPrice.snp.bottom).offset(8.0)
+            $0.centerX.equalTo(accountTotalPrice)
+            $0.bottom.equalToSuperview()
         }
 
         return view
@@ -176,6 +199,7 @@ private extension AssetTableViewCell {
             }
 
         let inset: CGFloat = 16.0
+
         cellView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(inset)
             $0.leading.equalToSuperview().offset(inset)
