@@ -18,6 +18,7 @@
 		AD980932287C0D6F003202E4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = AD980931287C0D6F003202E4 /* SnapKit */; };
 		AD9A6621287CE6C30059E953 /* AssetHeaderSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9A6620287CE6C20059E953 /* AssetHeaderSectionView.swift */; };
 		AD9A6626287CEC150059E953 /* AssetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9A6625287CEC150059E953 /* AssetTableViewCell.swift */; };
+		AD9A6628287D05960059E953 /* AccountDetailRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9A6627287D05960059E953 /* AccountDetailRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		AD98091B287B9E88003202E4 /* TableViewExampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AD9A6620287CE6C20059E953 /* AssetHeaderSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetHeaderSectionView.swift; sourceTree = "<group>"; };
 		AD9A6625287CEC150059E953 /* AssetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTableViewCell.swift; sourceTree = "<group>"; };
+		AD9A6627287D05960059E953 /* AccountDetailRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 				AD9808FC287B9E85003202E4 /* AssetViewController.swift */,
 				AD9A6620287CE6C20059E953 /* AssetHeaderSectionView.swift */,
 				AD9A6625287CEC150059E953 /* AssetTableViewCell.swift */,
+				AD9A6627287D05960059E953 /* AccountDetailRowView.swift */,
 			);
 			path = Asset;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			files = (
 				AD9A6621287CE6C30059E953 /* AssetHeaderSectionView.swift in Sources */,
 				AD9808FD287B9E85003202E4 /* AssetViewController.swift in Sources */,
+				AD9A6628287D05960059E953 /* AccountDetailRowView.swift in Sources */,
 				AD9808F9287B9E85003202E4 /* AppDelegate.swift in Sources */,
 				AD9808FB287B9E85003202E4 /* SceneDelegate.swift in Sources */,
 				AD9A6626287CEC150059E953 /* AssetTableViewCell.swift in Sources */,

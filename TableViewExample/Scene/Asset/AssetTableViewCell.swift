@@ -139,6 +139,82 @@ final class AssetTableViewCell: UITableViewCell {
         return view
     }()
 
+    private lazy var deposiTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "예수금"
+        label.font = .systemFont(ofSize: 14.0)
+        label.textColor = .lightGray
+        return label
+    }()
+
+    private lazy var depositValueLabel: UILabel = {
+        let label = UILabel()
+        label.text = "2,266,533원"
+        label.font = .systemFont(ofSize: 14.0)
+        label.textColor = .gray
+        return label
+    }()
+
+    private lazy var accountDetailView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .secondarySystemBackground
+        view.layer.cornerRadius = 4.0
+        let depositDetailView = AccountDetailRowView(
+            title: "예수금",
+            value: "2,266,533원"
+        )
+        let purchaingAmountView = AccountDetailRowView(
+            title: "매입금액",
+            value: "85,339,822원"
+        )
+        let valuationAmountView = AccountDetailRowView(
+            title: "평가금액",
+            value: "47,419,165원"
+        )
+        let withdrawalAmountView = AccountDetailRowView(
+            title: "출금가능금액",
+            value: "26,013원"
+        )
+        [
+            depositDetailView,
+            purchaingAmountView,
+            valuationAmountView,
+            withdrawalAmountView
+        ]
+            .forEach {
+                view.addSubview($0)
+            }
+
+        let inset: CGFloat = 8.0
+        depositDetailView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(inset)
+            $0.leading.equalToSuperview().offset(inset)
+            $0.trailing.equalToSuperview().offset(-inset)
+        }
+
+        purchaingAmountView.snp.makeConstraints {
+            $0.top.equalTo(depositDetailView.snp.bottom).offset(4.0)
+            $0.leading.equalTo(depositDetailView)
+            $0.trailing.equalTo(depositDetailView)
+  
+        }
+
+        valuationAmountView.snp.makeConstraints {
+            $0.top.equalTo(purchaingAmountView.snp.bottom).offset(4.0)
+            $0.leading.equalTo(depositDetailView)
+            $0.trailing.equalTo(depositDetailView)
+        }
+
+        withdrawalAmountView.snp.makeConstraints {
+            $0.top.equalTo(valuationAmountView.snp.bottom).offset(4.0)
+            $0.leading.equalTo(depositDetailView)
+            $0.trailing.equalTo(depositDetailView)
+            $0.bottom.equalToSuperview().offset(-inset)
+        }
+        return view
+    }()
+
+
     private lazy var cellView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -147,7 +223,8 @@ final class AssetTableViewCell: UITableViewCell {
             accountInfoView,
             moreButton,
             accountTotalPrice,
-            priceChangeView
+            priceChangeView,
+            accountDetailView
         ]
             .forEach {
                 view.addSubview($0)
@@ -174,11 +251,20 @@ final class AssetTableViewCell: UITableViewCell {
         priceChangeView.snp.makeConstraints {
             $0.top.equalTo(accountTotalPrice.snp.bottom).offset(8.0)
             $0.centerX.equalTo(accountTotalPrice)
+        }
+
+        accountDetailView.snp.makeConstraints {
+            $0.top.equalTo(priceChangeView.snp.bottom).offset(20.0)
+            $0.leading.equalToSuperview().offset(inset)
+            $0.trailing.equalToSuperview().offset(-inset)
             $0.bottom.equalToSuperview()
         }
 
         return view
     }()
+
+
+
 
     func setupCell() {
         setupViews()
