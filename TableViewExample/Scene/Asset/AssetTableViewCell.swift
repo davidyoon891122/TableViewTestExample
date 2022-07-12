@@ -11,59 +11,12 @@ import UIKit
 
 final class AssetTableViewCell: UITableViewCell {
     static let identifier = "AssetTableViewCell"
-    private lazy var accountInfoLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 12.0)
-        label.text = "12345678-01 위탁계좌"
-        label.textColor = .lightGray
-        return label
-    }()
 
-    private lazy var accountNameLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 13.0, weight: .bold)
-        label.text = "임직원 매매계좌"
-        return label
-    }()
-
-    private lazy var accountInfoCopyIconImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "doc.on.doc")
-        imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = .lightGray
-        return imageView
-    }()
-
-    private lazy var accountInfoView: UIView = {
-        let view = UIView()
-        [
-            accountInfoLabel,
-            accountNameLabel,
-            accountInfoCopyIconImageView
-        ]
-            .forEach {
-                view.addSubview($0)
-            }
-
-        accountInfoLabel.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.leading.equalToSuperview()
-        }
-
-        accountNameLabel.snp.makeConstraints {
-            $0.top.equalTo(accountInfoLabel.snp.bottom).offset(2.0)
-            $0.leading.equalTo(accountInfoLabel)
-            $0.bottom.equalToSuperview()
-        }
-
-        accountInfoCopyIconImageView.snp.makeConstraints {
-            $0.top.equalTo(accountInfoLabel)
-            $0.leading.equalTo(accountInfoLabel.snp.trailing).offset(2.0)
-            $0.width.height.equalTo(13.0)
-            $0.trailing.equalToSuperview()
-        }
-        return view
-    }()
+    private lazy var accountInfoView = AccountInfoView(
+        accountNumber: "12345678-01 위탁계좌",
+        accountName: "임직원 매매계좌",
+        copyIconName: nil
+    )
 
     private lazy var moreButton: UIButton = {
         let button = UIButton()
@@ -214,6 +167,7 @@ final class AssetTableViewCell: UITableViewCell {
         return view
     }()
 
+    private let assetButtonView = AssetBottomButtonView()
 
     private lazy var cellView: UIView = {
         let view = UIView()
@@ -224,7 +178,8 @@ final class AssetTableViewCell: UITableViewCell {
             moreButton,
             accountTotalPrice,
             priceChangeView,
-            accountDetailView
+            accountDetailView,
+            assetButtonView
         ]
             .forEach {
                 view.addSubview($0)
@@ -257,14 +212,17 @@ final class AssetTableViewCell: UITableViewCell {
             $0.top.equalTo(priceChangeView.snp.bottom).offset(20.0)
             $0.leading.equalToSuperview().offset(inset)
             $0.trailing.equalToSuperview().offset(-inset)
-            $0.bottom.equalToSuperview()
+        }
+
+        assetButtonView.snp.makeConstraints {
+            $0.top.equalTo(accountDetailView.snp.bottom).offset(20.0)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview().offset(-inset)
         }
 
         return view
     }()
-
-
-
 
     func setupCell() {
         setupViews()
@@ -277,6 +235,7 @@ private extension AssetTableViewCell {
         cellView.layer.cornerRadius = 8.0
         cellView.layer.borderWidth = 0.5
         cellView.layer.borderColor = UIColor.lightGray.cgColor
+        selectionStyle = .none
         [
             cellView
         ]
@@ -285,15 +244,13 @@ private extension AssetTableViewCell {
             }
 
         let inset: CGFloat = 16.0
+        let topInset: CGFloat = 4.0
 
         cellView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(inset)
+            $0.top.equalToSuperview().offset(topInset)
             $0.leading.equalToSuperview().offset(inset)
             $0.trailing.equalToSuperview().offset(-inset)
-            $0.bottom.equalToSuperview().offset(-inset)
+            $0.bottom.equalToSuperview().offset(-topInset)
         }
-
-
-
     }
 }
