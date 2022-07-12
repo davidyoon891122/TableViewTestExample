@@ -13,7 +13,12 @@ class AssetViewController: UIViewController {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(
+            AssetTableViewCell.self,
+            forCellReuseIdentifier: AssetTableViewCell.identifier
+        )
+        tableView.backgroundColor = .secondarySystemBackground
+        tableView.separatorStyle = .none
         return tableView
     }()
 
@@ -35,19 +40,23 @@ extension AssetViewController: UITableViewDataSource {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "Test"
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: AssetTableViewCell.identifier,
+            for: indexPath
+        ) as? AssetTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.setupCell()
         return cell
     }
 }
 
 extension AssetViewController: UITableViewDelegate {
-
+    
 }
 
 private extension AssetViewController {
     func setupViews() {
-        view.backgroundColor = .systemBackground
         [
             tableView
         ]
