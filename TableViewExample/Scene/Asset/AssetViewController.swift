@@ -14,6 +14,10 @@ class AssetViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(
+            AssetHeaderSectionView.self,
+            forHeaderFooterViewReuseIdentifier: AssetHeaderSectionView.identifier
+        )
+        tableView.register(
             AssetTableViewCell.self,
             forCellReuseIdentifier: AssetTableViewCell.identifier
         )
@@ -48,6 +52,22 @@ extension AssetViewController: UITableViewDataSource {
         }
         cell.setupCell()
         return cell
+    }
+
+    func tableView(
+        _ tableView: UITableView,
+        viewForHeaderInSection section: Int
+    ) -> UIView? {
+        if section == 0 {
+            guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: AssetHeaderSectionView.identifier) as? AssetHeaderSectionView else {
+                return UIView()
+            }
+
+            return headerView
+        } else {
+            return UIView()
+        }
+
     }
 }
 
