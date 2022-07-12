@@ -18,23 +18,15 @@ final class AssetHeaderSectionView: UITableViewHeaderFooterView {
         return label
     }()
 
-    private lazy var accountAssetButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("계좌별 자산", for: .normal)
-        button.setTitleColor(.lightGray, for: .normal)
-        button.setTitleColor(.black, for: .selected)
-        button.titleLabel?.font = .systemFont(ofSize: 16.0)
-        return button
+    private lazy var accountAssetButton = AssetButtonViewWithUnderBar(title: "계좌별 자산")
+
+    private lazy var accountAssetButtonUnderBarView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .lightGray
+        return view
     }()
 
-    private lazy var productAssetButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("상품유형별 자산", for: .normal)
-        button.setTitleColor(.lightGray, for: .normal)
-        button.setTitleColor(.black, for: .selected)
-        button.titleLabel?.font = .systemFont(ofSize: 16.0)
-        return button
-    }()
+    private lazy var productAssetButton = AssetButtonViewWithUnderBar(title: "상품유형별 자산")
 
 
     private lazy var assetSelectHStackView: UIStackView = {
@@ -54,10 +46,15 @@ final class AssetHeaderSectionView: UITableViewHeaderFooterView {
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         setupViews()
+        accountAssetButton.isSelected = true
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func setSelectedButton() {
+
     }
 }
 

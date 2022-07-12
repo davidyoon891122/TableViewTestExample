@@ -21,6 +21,7 @@
 		AD9A6628287D05960059E953 /* AccountDetailRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9A6627287D05960059E953 /* AccountDetailRowView.swift */; };
 		AD9A662A287D202B0059E953 /* AccountInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9A6629287D202B0059E953 /* AccountInfoView.swift */; };
 		AD9A662C287D25440059E953 /* AssetBottomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9A662B287D25440059E953 /* AssetBottomButtonView.swift */; };
+		AD9A662E287D4B2D0059E953 /* AssetButtonViewWithUnderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9A662D287D4B2D0059E953 /* AssetButtonViewWithUnderBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		AD9A6627287D05960059E953 /* AccountDetailRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailRowView.swift; sourceTree = "<group>"; };
 		AD9A6629287D202B0059E953 /* AccountInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoView.swift; sourceTree = "<group>"; };
 		AD9A662B287D25440059E953 /* AssetBottomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetBottomButtonView.swift; sourceTree = "<group>"; };
+		AD9A662D287D4B2D0059E953 /* AssetButtonViewWithUnderBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetButtonViewWithUnderBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 				AD9A6627287D05960059E953 /* AccountDetailRowView.swift */,
 				AD9A6629287D202B0059E953 /* AccountInfoView.swift */,
 				AD9A662B287D25440059E953 /* AssetBottomButtonView.swift */,
+				AD9A662D287D4B2D0059E953 /* AssetButtonViewWithUnderBar.swift */,
 			);
 			path = Asset;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				AD9A6628287D05960059E953 /* AccountDetailRowView.swift in Sources */,
 				AD9808F9287B9E85003202E4 /* AppDelegate.swift in Sources */,
 				AD9808FB287B9E85003202E4 /* SceneDelegate.swift in Sources */,
+				AD9A662E287D4B2D0059E953 /* AssetButtonViewWithUnderBar.swift in Sources */,
 				AD9A6626287CEC150059E953 /* AssetTableViewCell.swift in Sources */,
 				AD9A662A287D202B0059E953 /* AccountInfoView.swift in Sources */,
 			);

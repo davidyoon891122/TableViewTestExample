@@ -62,7 +62,7 @@ extension AssetViewController: UITableViewDataSource {
             guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: AssetHeaderSectionView.identifier) as? AssetHeaderSectionView else {
                 return UIView()
             }
-
+            headerView.setSelectedButton()
             return headerView
         } else {
             return UIView()
