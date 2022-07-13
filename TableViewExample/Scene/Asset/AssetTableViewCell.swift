@@ -13,8 +13,8 @@ final class AssetTableViewCell: UITableViewCell {
     static let identifier = "AssetTableViewCell"
 
     private lazy var accountInfoView = AccountInfoView(
-        accountNumber: "12345678-01 위탁계좌",
-        accountName: "임직원 매매계좌",
+        accountNumber: "12345678-01 일반계좌",
+        accountName: "테스트 주식계좌",
         copyIconName: nil
     )
 
